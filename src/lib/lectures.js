@@ -40,6 +40,8 @@ export function getLecturesArray() {
         const data = getLectureBySlug('some-slug-string');
         console.log('single entry data returned', data);    
         console.log('single entry data returned, title', data.title);
+
+* @param {string} slug for the lecture to be returned
 */
 export function getLectureBySlug (slug) {
   const lectures = getLecturesArray();
@@ -58,7 +60,7 @@ function test1() {
   console.log('data returned, slug: ', data[0].slug);
   console.log('data returned, content: ', data[0].content);
 
-  const dataSearched = getLectureBySlug('js-programs');
+  const dataSearched = getBySlug('js-programs');
   console.log('dataSearched returned: ', dataSearched);
   console.log('dataSearched returned, title: ', dataSearched.title);
 

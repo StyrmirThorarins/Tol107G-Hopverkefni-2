@@ -10,7 +10,7 @@
 const LOCALSTORAGE_KEY = 'lectureComplete';
 
 /**
-   * Vistaðar myndir með texta.
+   * Saved .
    *
    * @param {string} slug for the lecture status being saved
    * @param {boolean} true or false statement, signifying whether lecture is completed or not   
