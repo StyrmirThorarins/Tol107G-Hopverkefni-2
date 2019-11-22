@@ -51,3 +51,7 @@ function getBySlug (slug) {
   }
   return lecture;
 }
+
+function test1() {
+    getLecturesJSON;
+}
