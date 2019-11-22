@@ -5,10 +5,10 @@ export function empty(element) {
 }
 
 /**
- * Búa til element og aukalega setja börn ef send með
+ * Create DOM elements, and append children if sent as extra parameters
  *
- * @param {string} name Nafn á element
- * @param  {...any} children Börn fyrir element
+ * @param {string} name of element to be created
+ * @param  {...any} any children to be appended to the element
  */
 export function el(name, ...children) {
   const element = document.createElement(name);
