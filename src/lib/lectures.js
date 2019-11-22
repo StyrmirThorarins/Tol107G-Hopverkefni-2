@@ -28,7 +28,7 @@ function getLecturesJSON() {
         console.log('first entry, slug', data[0].slug);    
         console.log('first entry, data content for first entry', data[0].content);
 */
-function getLecturesArray() {
+export function getLecturesArray() {
   const lecturesJSON = getLecturesJSON();  
   const lectures = Object.entries(lecturesJSON);
 
@@ -37,11 +37,11 @@ function getLecturesArray() {
 
 /* return one lecture, found by slug passed, returns lecture JSON object if found, returns null if not found
     How to use: 
-        const data = getBySlug('some-slug-string');
+        const data = getLectureBySlug('some-slug-string');
         console.log('single entry data returned', data);    
         console.log('single entry data returned, title', data.title);
 */
-function getBySlug (slug) {
+export function getLectureBySlug (slug) {
   const lectures = getLecturesArray();
 
   let lecture = null;
@@ -58,7 +58,7 @@ function test1() {
   console.log('data returned, slug: ', data[0].slug);
   console.log('data returned, content: ', data[0].content);
 
-  const dataSearched = getBySlug('js-programs');
+  const dataSearched = getLectureBySlug('js-programs');
   console.log('dataSearched returned: ', dataSearched);
   console.log('dataSearched returned, title: ', dataSearched.title);
 
