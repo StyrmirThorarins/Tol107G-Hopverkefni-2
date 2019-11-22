@@ -22,28 +22,28 @@ function getLecturesJSON() {
   return lecturesJSON;
 }
 
-/* returns Array with data for all lectures
+/** returns Array with data for all lectures
     How to use:
-        const data = getLecturesArray();
-        console.log('first entry, slug', data[0].slug);    
-        console.log('first entry, data content for first entry', data[0].content);
+      const data = getLecturesArray();
+      console.log('first entry, slug', data[0].slug);    
+      console.log('first entry, data content for first entry', data[0].content);
 */
-export function getLecturesArray() {
+function getLecturesArray() {
   const lecturesJSON = getLecturesJSON();  
   const lectures = Object.entries(lecturesJSON);
 
   return lectures[0][1];
 }
 
-/* return one lecture, found by slug passed, returns lecture JSON object if found, returns null if not found
-    How to use: 
-        const data = getLectureBySlug('some-slug-string');
-        console.log('single entry data returned', data);    
-        console.log('single entry data returned, title', data.title);
+/**  return one lecture, found by slug passed, returns lecture JSON object if found, returns null if not found
+   * How to use: 
+   *   const data = getLectureBySlug('some-slug-string');
+   *   console.log('single entry data returned', data);    
+   *   console.log('single entry data returned, title', data.title);
 
-* @param {string} slug for the lecture to be returned
+   * @param {string} slug for the lecture to be returned
 */
-export function getLectureBySlug (slug) {
+function getLectureBySlug (slug) {
   const lectures = getLecturesArray();
 
   let lecture = null;
@@ -60,7 +60,7 @@ function test1() {
   console.log('data returned, slug: ', data[0].slug);
   console.log('data returned, content: ', data[0].content);
 
-  const dataSearched = getBySlug('js-programs');
+  const dataSearched = getLectureBySlug('js-programs');
   console.log('dataSearched returned: ', dataSearched);
   console.log('dataSearched returned, title: ', dataSearched.title);
 
