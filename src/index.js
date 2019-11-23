@@ -1,6 +1,8 @@
 /* eslint-disable linebreak-style */
 /* eslint-disable no-empty */
 import List from './lib/list';
+import Lectures from './lib/lectures';
+import LectureLocalStorage from './lib/localStorage';
 
 document.addEventListener('DOMContentLoaded', () => {
   const page = document.querySelector('body');

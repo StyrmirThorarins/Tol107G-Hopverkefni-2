@@ -66,5 +66,4 @@ export default class Lectures {
     // console.log('dataSearched returned: ', dataSearched);
     // console.log('dataSearched returned, title: ', dataSearched.title);
   }
-
 }
