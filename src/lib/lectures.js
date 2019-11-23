@@ -1,3 +1,4 @@
+/* eslint-disable import/prefer-default-export */
 /* eslint-disable linebreak-style */
 /*
   functions to handle data for lectures
