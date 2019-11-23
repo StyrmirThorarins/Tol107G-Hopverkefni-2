@@ -22,10 +22,10 @@ document.addEventListener('DOMContentLoaded', () => {
  */
   function compareDivId(e) {
     const eventId = e.target.parentNode.id;
-    for (let i = 0; i < getLecturesArray().length; i += 1) {
-      if (eventId === getLecturesArray()[i].slug) {
+    for (let i = 0; i < Lectures.getLecturesArray().length; i += 1) {
+      if (eventId === Lectures.getLecturesArray()[i].slug) {
       // console.log(getLectureBySlug(eventId));
-        data = getLectureBySlug(eventId);
+        data = Lectures.getLectureBySlug(eventId);
       }
     }
     console.log(data);
