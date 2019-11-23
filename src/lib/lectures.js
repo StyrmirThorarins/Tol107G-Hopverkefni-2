@@ -8,7 +8,7 @@ const LECTUREFILENAME = 'lectures.json';
 // reads and returns local json file, pass filename of a json file in the root of the server
 function readLocalJSON(filename) {
   const req = new XMLHttpRequest();
-  req.open('GET', `${window.location.href}/${filename}`, true);
+  req.open('GET', `${window.location.href}/${filename}`, false);
   req.send(null);
   if (req.status === 200) {
     // console.log('readLocalJSON -> read file data:', req.responseText);
