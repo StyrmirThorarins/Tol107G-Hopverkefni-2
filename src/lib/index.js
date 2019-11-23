@@ -1,6 +1,7 @@
 /* eslint-disable linebreak-style */
 /* eslint-disable no-empty */
-import List from './lib/list';
+import List from './list.js';
+import { getLectureBySlug, getLecturesArray } from './lectures.js';
 
 document.addEventListener('DOMContentLoaded', () => {
   const page = document.querySelector('body');
@@ -11,7 +12,6 @@ document.addEventListener('DOMContentLoaded', () => {
   let hlekkur = window.location.href;
   let data;
   const img = document.querySelector('.header__img');
-  console.log(typeof img);
 
 
   /**
@@ -38,11 +38,11 @@ document.addEventListener('DOMContentLoaded', () => {
       child.addEventListener('click', compareDivId);
     }
   }
+  function loadContent(items) {
+    // birta hluti inn
+  }
   getClickedItem();
   if (isLecturePage) {
-    function loadContent(items) {
-    // birta hluti inn
-    }
   } else {
     const list = new List();
     list.load();

@@ -1,3 +1,4 @@
+/* eslint-disable import/prefer-default-export */
 /* eslint-disable linebreak-style */
 /*
   functions to handle data for lectures
@@ -29,7 +30,7 @@ function getLecturesJSON() {
       console.log('first entry, slug', data[0].slug);
       console.log('first entry, data content for first entry', data[0].content);
 */
-function getLecturesArray() {
+export function getLecturesArray() {
   const lecturesJSON = getLecturesJSON();
   const lectures = Object.entries(lecturesJSON);
 
@@ -44,7 +45,7 @@ function getLecturesArray() {
 
    * @param {string} slug for the lecture to be returned
 */
-function getLectureBySlug(slug) {
+export function getLectureBySlug(slug) {
   const lectures = getLecturesArray();
 
   let lecture = null;
