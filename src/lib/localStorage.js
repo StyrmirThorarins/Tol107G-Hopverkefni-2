@@ -1,3 +1,5 @@
+/* eslint-disable max-len */
+/* eslint-disable linebreak-style */
 /*
   Module that handles the saving, loading and modifying of data in localStorage
 */
@@ -9,10 +11,10 @@ const LOCALSTORAGE_KEY = 'lectureComplete';
    *
    * @param {string} slug for the lecture status being saved
    * Returns true if there is an entry in localstorage and the lecture is saved as completed, otherwise returns false.
-   * 
+   *
 */
-function getLectureStatus(slug) {  
-  console.log('localStorage: ', localStorage);    
+function getLectureStatus(slug) {
+  // console.log('localStorage: ', localStorage);
   let lectureStatus = false;
 
   if (slug != null) {
@@ -31,13 +33,13 @@ function getLectureStatus(slug) {
    * Saves the completion status of passed lecture in localstorage.
    *
    * @param {string} slug for the lecture status being saved
-   * @param {boolean} true or false statement, signifying whether lecture is completed or not   
+   * @param {boolean} true or false statement, signifying whether lecture is completed or not
 */
 function saveLectureStatus(slug, bCompleted) {
   const mediaJSON = `{"completed": "${bCompleted}"}`;
   localStorage.setItem(`${LOCALSTORAGE_KEY}-${slug}`, mediaJSON);
 
-  console.log('Lecture completions status saved.');
+  // console.log('Lecture completions status saved.');
 }
 
 /**
@@ -57,13 +59,13 @@ function localStorageTest1() {
   let completed = null;
   saveLectureStatus('slug-test', true);
   completed = getLectureStatus('slug-test');
-  console.log('lecture completion status: ', completed);
+  // console.log('lecture completion status: ', completed);
 
   saveLectureStatus('slug-test', false);
   completed = getLectureStatus('slug-test');
-  console.log('lecture completion status: ', completed);
+  // console.log('lecture completion status: ', completed);
 
   clearLectureBySlug('slug-test');
   completed = getLectureStatus('slug-test');
-  console.log('lecture completion status: ', completed);
+  // console.log('lecture completion status: ', completed);
 }
