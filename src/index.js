@@ -54,6 +54,7 @@ document.addEventListener('DOMContentLoaded', () => {
   }
   function uploadContent(content) {
     const lecture = document.querySelector('.lecture');
+    const firstChild = lecture.childNodes[0];
     for (let i = 0; i < content.length; i += 1) {
       const div = el('div');
       div.classList.add('lecture__div');
@@ -114,8 +115,15 @@ document.addEventListener('DOMContentLoaded', () => {
           div.appendChild(p);
         }
       }
-      lecture.appendChild(div);
+      lecture.insertBefore(div, firstChild);
     }
+  }
+  function tilBaka() {
+    // var s = '/Controller/Action';
+    const n = hlekkur.lastIndexOf('/');
+    hlekkur = hlekkur.substring(0, n);
+    console.log(hlekkur);
+    window.location.href = hlekkur;
   }
   function loadContent() {
     const gogn = localStorage.getItem('data');
@@ -126,7 +134,8 @@ document.addEventListener('DOMContentLoaded', () => {
   }
   if (isLecturePage) {
     loadContent();
-    console.log(localStorage.data);
+    const atag = document.querySelector('.lecture__last-pt');
+    atag.addEventListener('click', tilBaka);
   } else {
     localStorage.removeItem('data');
     const list = new List();

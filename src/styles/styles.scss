@@ -85,9 +85,6 @@ h1,h2,h3{
   &__anmynd{ // fyrirlestrar sem hafa ekki mynd
     display: inline;
     align-items: flex-end;
-    width: 100%;
-    height: 100%;
-    background-color: red;
   }
 }
 .fyrirlestur:hover{
@@ -171,6 +168,15 @@ header{ //header elementið sjálft
   width: 100%;
   max-width: 800px;
   row-gap: $gutter*2;
+  &__last{
+    text-align: center;
+    line-height: 2;
+    margin: $gutter*2;
+    a{
+      text-decoration: none;
+      color: black;
+    }
+  }
   ul{
     font-size: 21px;
   }
