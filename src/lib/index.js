@@ -21,7 +21,7 @@ document.addEventListener('DOMContentLoaded', () => {
  * @param {compareDivId} e elementið sem smellt er á
  */
   function compareDivId(e) {
-    const eventId = e.target.parentNode.id;
+    const eventId = e.target.parentNode.id;    
     for (let i = 0; i < Lectures.getLecturesArray().length; i += 1) {
       if (eventId === Lectures.getLecturesArray()[i].slug) {
       // console.log(getLectureBySlug(eventId));

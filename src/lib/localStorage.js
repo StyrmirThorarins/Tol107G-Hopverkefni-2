@@ -14,7 +14,7 @@ export default class LectureLocalStorage {
    * Returns true if there is an entry in localstorage and the lecture is saved as completed, otherwise returns false.
    *
    */
-  getLectureStatus(slug) {
+  static getLectureStatus(slug) {
     // console.log('localStorage: ', localStorage);
     let lectureStatus = false;
 
@@ -36,7 +36,7 @@ export default class LectureLocalStorage {
    * @param {string} slug for the lecture status being saved
    * @param {boolean} true or false statement, signifying whether lecture is completed or not
    */
-  saveLectureStatus(slug, bCompleted) {
+  static saveLectureStatus(slug, bCompleted) {
     const mediaJSON = `{"completed": "${bCompleted}"}`;
     localStorage.setItem(`${LOCALSTORAGE_KEY}-${slug}`, mediaJSON);
 
@@ -47,16 +47,16 @@ export default class LectureLocalStorage {
    * Remove a specific lecture item from local storage by slug
    * @param {string} slug of the lecture localstorage data to clear
    */
-  clearLectureBySlug(slug) {
+  static clearLectureBySlug(slug) {
     localStorage.removeItem(`${LOCALSTORAGE_KEY}-${slug}`);
   }
 
   // Clears all local storage.
-  clearAllLocalStorage() {
+  static clearAllLocalStorage() {
     localStorage.clear();
   }
 
-  localStorageTest1() {
+  static localStorageTest1() {
     // let completed = null;
     // saveLectureStatus('slug-test', true);
     // completed = getLectureStatus('slug-test');

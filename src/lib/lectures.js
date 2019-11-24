@@ -8,7 +8,7 @@ const LECTUREFILENAME = 'lectures.json';
 
 export default class Lectures {
   // reads and returns local json file, pass filename of a json file in the root of the server
-  readLocalJSON(filename) {
+  static readLocalJSON(filename) {
     const req = new XMLHttpRequest();
     req.open('GET', `${window.location.href}/${filename}`, false);
     req.send(null);
@@ -19,7 +19,7 @@ export default class Lectures {
   }
 
   // returns JSON object of all lectures
-  getLecturesJSON() {
+  static getLecturesJSON() {
     const lecturesJSON = JSON.parse(this.readLocalJSON(LECTUREFILENAME));
     // console.log('getLecturesJSON -> lecturesJSON:', lecturesJSON);
     return lecturesJSON;
@@ -31,7 +31,7 @@ export default class Lectures {
         console.log('first entry, slug', data[0].slug);
         console.log('first entry, data content for first entry', data[0].content);
   */
-  getLecturesArray() {
+ static getLecturesArray() {
     const lecturesJSON = this.getLecturesJSON();
     const lectures = Object.entries(lecturesJSON);
 
@@ -46,7 +46,7 @@ export default class Lectures {
 
      * @param {string} slug for the lecture to be returned
   */
-  getLectureBySlug(slug) {
+ static getLectureBySlug(slug) {
     const lectures = this.getLecturesArray();
 
     let lecture = null;
@@ -58,7 +58,7 @@ export default class Lectures {
     return lecture;
   }
 
-  test1() {
+  static test1() {
     // const data = getLecturesArray();
     // console.log('data returned, slug: ', data[0].slug);
     // console.log('data returned, content: ', data[0].content);
