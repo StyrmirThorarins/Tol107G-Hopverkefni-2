@@ -100,6 +100,40 @@ h1,h2,h3{
     padding-left: $gutter;
   }
 }
+
+//Checkmark fyrir kláraða kúrsa
+
+.complete {
+//stillingar fyrir staðsetningu
+
+}
+
+.checkmark {
+  display: inline-block;
+  width: 22px;
+  height: 22px;
+  -ms-transform: rotate(45deg); /* IE 9 */
+  -webkit-transform: rotate(45deg); /* Chrome, Safari, Opera */
+  transform: rotate(45deg);
+}
+
+.checkmark_stem {
+  position: absolute;
+  width: 3px;
+  height: 30px;
+  background-color: green;
+  left: 11px;
+  top: -15px;
+}
+
+.checkmark_kick {
+  position: absolute;
+  width: 10px;
+  height: 3px;
+  background-color: green;
+  left: 2px;
+  top: 12px;
+}
 //fyrirlestra section endar
 
 //div tögg sem ekki eru í fyrirlestra div
@@ -108,6 +142,10 @@ h1,h2,h3{
   width: 100%;
   max-width: $max-width;
   margin-bottom: $gutter*2;
+}
+
+.btn__active {
+  background-color: $green;
 }
 
 .header{ //hausinn
