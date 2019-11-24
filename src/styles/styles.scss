@@ -211,4 +211,10 @@ header{ //header elementið sjálft
     font-size: 32px;
   }
 }
+.klarad{
+  color: $green;
+}
+.klarad:before {
+  content: '✓ ';
+}
 
