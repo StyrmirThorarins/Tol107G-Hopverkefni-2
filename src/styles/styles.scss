@@ -160,9 +160,41 @@ header{ //header elementið sjálft
 
 //fyrirlestur.html
 .lecture{
+  padding-left: $gutter;
+  padding-right: $gutter;
+  margin-top: $gutter*2;
   display: grid;
   grid-template-columns: 1fr;
   width: 100%;
-  max-width: $max-width;
+  max-width: 800px;
   row-gap: $gutter*2;
+  ul{
+    font-size: 21px;
+  }
+  iframe{
+    height: 100%;
+    left: 0;
+    position: absolute;
+    top: 0;
+    width: 100%;
+  }
+  &__iframe{
+    overflow: hidden;
+  // Calculated from the aspect ration of the content (in case of 16:9 it is 9/16= 0.5625)
+  padding-top: 56.25%;
+  position: relative;
+  }
+  &__div{
+    width: 100%;
+  }
+  img{
+    max-width: 100%;
+  }
+  p{
+    font-size: 24px;
+  }
+  h1{
+    font-size: 32px;
+  }
 }
+
