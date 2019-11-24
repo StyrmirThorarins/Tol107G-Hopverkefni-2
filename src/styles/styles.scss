@@ -71,6 +71,11 @@ h1,h2,h3{
     background-color: $whitegrey;
     border: none;
     padding: $gutter/2;
+    transition: 0.3s;
+    &:hover{
+      background-color: $grey;
+      cursor: pointer;
+    }
     h3{
       font-size: $grunnleturstaerd*2;
       font-weight: bold;
@@ -83,23 +88,23 @@ h1,h2,h3{
     }
   }
   &__anmynd{ // fyrirlestrar sem hafa ekki mynd
-    display: inline;
+    display: flex;
     align-items: flex-end;
   }
 }
-.fyrirlestur:hover{
-  cursor: pointer;
-}
+
 
 .fyrirlestur{ // hvert einasti fyrirlestur
   background-color: $whitegrey;
   padding-bottom: $gutter/2;
+  transition: 0.3s;
   &:hover{
     cursor: pointer;
+    background-color: $grey;
   }
   h2{ // h2-tagg í hvert fyrirlestur
     font-family: $font-title;
-    font-size: $grunnleturstaerd*3;
+    font-size: $grunnleturstaerd*2;
     padding-left: $gutter;
   }
   p{ // p-tögg í hvert einasta fyrirlestur
@@ -210,5 +215,11 @@ header{ //header elementið sjálft
   h1{
     font-size: 32px;
   }
+}
+.klarad{
+  color: $green;
+}
+.klarad:before {
+  content: '✓ ';
 }
 

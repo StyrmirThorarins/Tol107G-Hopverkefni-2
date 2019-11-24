@@ -17,6 +17,8 @@ document.addEventListener('DOMContentLoaded', () => {
   let hlekkur = window.location.href;
   let data;
   let eventId;
+  const atag = document.querySelector('.lecture__last-pt');
+  const klara = document.querySelector('.lecture__last-pk');
 
 
   /**
@@ -25,7 +27,13 @@ document.addEventListener('DOMContentLoaded', () => {
  * @param {compareDivId} e elementið sem smellt er á
  */
   function compareDivId(e) {
-    eventId = e.target.id ? e.target.id : e.target.parentNode.id;
+    if (e.target.id) {
+      eventId = e.target.id;
+    } else if (e.target.parentNode.id) {
+      eventId = e.target.parentNode.id;
+    } else {
+      eventId = e.target.parentNode.parentNode.id;
+    }
     for (let i = 0; i < Lectures.getLecturesArray().length; i += 1) {
       if (eventId === Lectures.getLecturesArray()[i].slug) {
         data = Lectures.getLectureBySlug(eventId);
@@ -122,15 +130,28 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   }
   function tilBaka() {
-    // var s = '/Controller/Action';
     const n = hlekkur.lastIndexOf('/');
     hlekkur = hlekkur.substring(0, n);
-    console.log(hlekkur);
     window.location.href = hlekkur;
+  }
+  function finishContent(e) {
+    const gogn = localStorage.getItem('data');
+    const json = JSON.parse(gogn);
+    if (!LectureLocalStorage.getLectureStatus(json.slug)) {
+      LectureLocalStorage.saveLectureStatus(json.slug, true);
+      e.target.innerHTML = 'Fyrirlestur kláraður';
+      e.target.classList.add('klarad');
+    } else { // Stilla lecture status sem false og breyta p-tag í svart.
+      LectureLocalStorage.saveLectureStatus(json.slug, false);
+      LectureLocalStorage.clearLectureBySlug(json.slug);
+      e.target.innerHTML = 'Klára fyrirlestur';
+      e.target.classList.remove('klarad');
+    }
   }
   function loadContent() {
     const gogn = localStorage.getItem('data');
     const json = JSON.parse(gogn);
+    console.log(json);
     const { content } = json;
     initFyrirlestur(gogn, json);
     uploadContent(content);
@@ -158,8 +179,8 @@ document.addEventListener('DOMContentLoaded', () => {
   }
   if (isLecturePage) {
     loadContent();
-    const atag = document.querySelector('.lecture__last-pt');
     atag.addEventListener('click', tilBaka);
+    klara.addEventListener('click', finishContent);
   } else {
     localStorage.removeItem('data');
     const list = new List();
