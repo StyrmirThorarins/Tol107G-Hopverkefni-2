@@ -25,9 +25,9 @@
             <button class="fyrirlestrar__css fyrirlestrar__btn"><h3>CSS</h3></button>
             <button class="fyrirlestrar__javascript fyrirlestrar__btn"><h3>JavaScript</h3></button>
           </div> </div>
-        <div class="fyrirlestrar"> <!--fyrirstra div-->
-          <div class="fyrirlestur fyrirlestrar__sagan">
-            <img src="img/thumb1.jpg" class="fyrirlestrar__img" alt="thumbnail img">
+        <div class="fyrirlestrar"> 
+          <div class="fyrirlestur fyrirlestrar__sagan" id="html-sagan"  id="sagan">
+            <img src="img/thumb1.jpg" class="fyrirlestrar__img" alt="thumbnail img"> 
             <p>HTML</p>
             <h2>Sagan</h2>
             <!-- Checkmark fyrir kláraða kúrsa
@@ -39,65 +39,58 @@
             </div>-->
 
           </div>
-          <div class="fyrirlestur fyrirlestrar__element fyrirlestrar__anmynd">
-            <div class="fyrirlestrar__anmyndItem">
+          <div class="fyrirlestur fyrirlestrar__element fyrirlestrar__anmynd" id="html-element" >
                 <p>HTML</p>
                 <h2>Element</h2>
-            </div>
           </div>
-          <div class="fyrirlestur fyrirlestrar__adgengi">
-              <img src="img/thumb2.jpg" class="fyrirlestrar__img" alt="thumbnail img">
+          <div class="fyrirlestur fyrirlestrar__adgengi" id="html-a11y">
+              <img src="img/thumb2.jpg" class="fyrirlestrar__img" alt="thumbnail img" >
             <p>HTML</p>
             <h2>Aðgengi</h2>
           </div>
-          <div class="fyrirlestur fyrirlestrar__malfraedi">
-              <img src="img/thumb3.jpg" class="fyrirlestrar__img" alt="thumbnail img">
+          <div class="fyrirlestur fyrirlestrar__malfraedi" id="css-syntax">
+              <img src="img/thumb3.jpg" class="fyrirlestrar__img" alt="thumbnail img" >
             <p>CSS</p>
             <h2>Málfræði</h2>
           </div>
-          <div class="fyrirlestur fyrirlestrar__boxmodel">
-              <img src="img/thumb4.jpg" class="fyrirlestrar__img" alt="thumbnail img">
+          <div class="fyrirlestur fyrirlestrar__boxmodel" id="css-box">
+              <img src="img/thumb4.jpg" class="fyrirlestrar__img" alt="thumbnail img" >
             <p>CSS</p>
             <h2>Box model</h2>
           </div>
-          <div class="fyrirlestur fyrirlestrar__flexbox">
+          <div class="fyrirlestur fyrirlestrar__flexbox" id="css-flexbox">
               <img src="img/thumb5.jpg" class="fyrirlestrar__img" alt="thumbnail img">
             <p>CSS</p>
             <h2>Flexbox</h2>
           </div>
-          <div class="fyrirlestur fyrirlestrar__skalanleg">
+          <div class="fyrirlestur fyrirlestrar__skalanleg" id="css-responsive">
               <img src="img/thumb6.jpg" class="fyrirlestrar__img" alt="thumbnail img">
             <p>JAVASCRIPT</p>
             <h2>Skalanleg vefhönnun</h2>
           </div>
-          <div class="fyrirlestur fyrirlestrar__gildi fyrirlestrar__anmynd" >
-            <div class="fyrirlestrar__anmyndItem">
+          <div class="fyrirlestur fyrirlestrar__gildi fyrirlestrar__anmynd" id="js-basic">
                 <p>JAVASCRIPT</p>
                 <h2>Gildi,týpur og virkjar</h2>
-            </div>
           </div>
-          <div class="fyrirlestur fyrirlestrar__forrit">
+          <div class="fyrirlestur fyrirlestrar__forrit" id="js-programs">
               <img src="img/thumb7.jpg" class="fyrirlestrar__img" alt="thumbnail img">
             <p>JAVASCRIPT</p>
             <h2>Forrit</h2>
           </div>
-          <div class="fyrirlestur fyrirlestrar__foll">
+          <div class="fyrirlestur fyrirlestrar__foll" id="js-functions">
               <img src="img/thumb8.jpg" class="fyrirlestrar__img" alt="thumbnail img">
             <p>JAVASCRIPT</p>
             <h2>Föll</h2>
           </div>
-          <div class="fyrirlestur fyrirlestrar__arrObj">
+          <div class="fyrirlestur fyrirlestrar__arrObj" id="js-array">
               <img src="img/thumb9.jpg" class="fyrirlestrar__img" alt="thumbnail img">
             <p>JAVASCRIPT</p>
             <h2>Array & objects</h2>
           </div>
-          <div class="fyrirlestur fyrirlestrar__dom fyrirlestrar__anmynd">
-            <div class="fyrirlestrar__anmyndItem">
-                <p>JAVASCRIPT</p>
-                <h2>DOM & vafrinn</h2>
-            </div>
-          </div>
-          <div class="fyrirlestur fyrirlestrar__daemi">
+          <div class="fyrirlestur fyrirlestrar__dom fyrirlestrar__anmynd" id="js-dom">
+              <p>JAVASCRIPT</p>
+              <h2>DOM & vafrinn</h2>
+          <div class="fyrirlestur fyrirlestrar__daemi" id="js-example">
               <img src="img/thumb10.jpg" class="fyrirlestrar__img" alt="thumbnail img">
             <p>JAVASCRIPT</p>
             <h2>Dæmi</h2>
@@ -105,11 +98,14 @@
          </div>
      </div>
    </main>
-    <script src="src/lib/lectures.js"></script>
-    <script src="src/lib/localStorage.js"></script>
+   
+    <script src="src/lib/lectures.js" type="module"></script>
+    <script src="src/lib/localStorage.js" type="module"></script>
+    <script src="src/index.js" type="module"></script>
     <script>
-        test1();
-        localStorageTest1();        
+      // test1();
+      // localStorageTest1();
     </script>
+  
 </body>
 </html>

@@ -11,6 +11,7 @@
   box-sizing: inherit;
 }
 
+//Almennt utlit
 html { /* stylelint-disable-line */
   box-sizing: border-box;
   overflow-x: hidden;
@@ -30,6 +31,7 @@ h1,h2,h3{
   width: 100%;
   max-width: $max-width;
 }
+//Almennt utlit endar
 
 //fyrirlestra section byrjar
 .fyrirlestrar{ //div tag til að stýra utlit fyrirlestra div-tagga
@@ -81,14 +83,20 @@ h1,h2,h3{
     }
   }
   &__anmynd{ // fyrirlestrar sem hafa ekki mynd
-    display: flex;
+    display: inline;
     align-items: flex-end;
   }
+}
+.fyrirlestur:hover{
+  cursor: pointer;
 }
 
 .fyrirlestur{ // hvert einasti fyrirlestur
   background-color: $whitegrey;
   padding-bottom: $gutter/2;
+  &:hover{
+    cursor: pointer;
+  }
   h2{ // h2-tagg í hvert fyrirlestur
     font-family: $font-title;
     font-size: $grunnleturstaerd*3;
@@ -184,5 +192,56 @@ h1,h2,h3{
 }
 header{ //header elementið sjálft
   height: 300px;
+}
+
+// index.html lokið
+
+//fyrirlestur.html
+.lecture{
+  padding-left: $gutter;
+  padding-right: $gutter;
+  margin-top: $gutter*2;
+  display: grid;
+  grid-template-columns: 1fr;
+  width: 100%;
+  max-width: 800px;
+  row-gap: $gutter*2;
+  &__last{
+    text-align: center;
+    line-height: 2;
+    margin: $gutter*2;
+    a{
+      text-decoration: none;
+      color: black;
+    }
+  }
+  ul{
+    font-size: 21px;
+  }
+  iframe{
+    height: 100%;
+    left: 0;
+    position: absolute;
+    top: 0;
+    width: 100%;
+  }
+  &__iframe{
+    overflow: hidden;
+  // Calculated from the aspect ration of the content (in case of 16:9 it is 9/16= 0.5625)
+  padding-top: 56.25%;
+  position: relative;
+  }
+  &__div{
+    width: 100%;
+  }
+  img{
+    max-width: 100%;
+  }
+  p{
+    font-size: 24px;
+  }
+  h1{
+    font-size: 32px;
+  }
 }
 

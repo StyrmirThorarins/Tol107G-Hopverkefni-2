@@ -1,4 +1,5 @@
-import { empty } from './helpers';
+/* eslint-disable linebreak-style */
+import { empty } from './helpers.js';
 
 export default class List {
   constructor() {
@@ -6,6 +7,6 @@ export default class List {
   }
 
   load() {
-    empty(this.container);
+    // empty(this.container); commentað því this.container er null
   }
 }
