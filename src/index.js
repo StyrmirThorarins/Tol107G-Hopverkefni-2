@@ -8,16 +8,15 @@ import { el } from './lib/helpers.js';
 document.addEventListener('DOMContentLoaded', () => {
   const page = document.querySelector('body');
   const isLecturePage = page.classList.contains('lecture-page');
-<<<<<<< HEAD
-  const btn = document.querySelector('button');
-=======
+  const btnHtml = document.querySelector('.fyrirlestrar__html.fyrirlestrar__btn');
+  const btnCss = document.querySelector('.fyrirlestrar__css.fyrirlestrar__btn');
+  const btnJava = document.querySelector('.fyrirlestrar__javascript.fyrirlestrar__btn');
   const fyrirlestrar = document.querySelector('.fyrirlestrar');
   let x;
   let child;
   let hlekkur = window.location.href;
   let data;
   let eventId;
->>>>>>> 28b0051f9d3448515efd38dc020e68f5b8276852
 
 
   /**
@@ -136,6 +135,27 @@ document.addEventListener('DOMContentLoaded', () => {
     initFyrirlestur(gogn, json);
     uploadContent(content);
   }
+  function toggleBtnHtml() {
+    if (btnHtml.classList.contains('btn__active')) {
+      btnHtml.classList.remove('btn__active');
+    } else {
+      btnHtml.classList.add('btn__active');
+    }
+  }
+  function toggleBtnCss() {
+    if (btnCss.classList.contains('btn__active')) {
+      btnCss.classList.remove('btn__active');
+    } else {
+      btnCss.classList.add('btn__active');
+    }
+  }
+  function toggleBtnJava() {
+    if (btnJava.classList.contains('btn__active')) {
+      btnJava.classList.remove('btn__active');
+    } else {
+      btnJava.classList.add('btn__active');
+    }
+  }
   if (isLecturePage) {
     loadContent();
     const atag = document.querySelector('.lecture__last-pt');
@@ -144,23 +164,9 @@ document.addEventListener('DOMContentLoaded', () => {
     localStorage.removeItem('data');
     const list = new List();
     list.load();
-<<<<<<< HEAD
-    btn.addEventListener('click', toggleBtn);
-    console.log('ha');
-
-    toggleBtn() {
-        console.log('ni');
-        if (btn.classList.contains('btn__active')) {
-            btn.classList.remove('btn__active');
-        }
-        else {
-            btn.classList.add('btn__active');
-        }
-    }
-    
-
-=======
+    btnHtml.addEventListener('click', toggleBtnHtml);
+    btnCss.addEventListener('click', toggleBtnCss);
+    btnJava.addEventListener('click', toggleBtnJava);
     getClickedItem();
->>>>>>> 28b0051f9d3448515efd38dc020e68f5b8276852
   }
 });
