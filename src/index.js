@@ -22,10 +22,9 @@ document.addEventListener('DOMContentLoaded', () => {
  * @param {compareDivId} e elementið sem smellt er á
  */
   function compareDivId(e) {
-    eventId = e.target.parentNode.id;
+    eventId = e.target.id ? e.target.id : e.target.parentNode.id;
     for (let i = 0; i < Lectures.getLecturesArray().length; i += 1) {
       if (eventId === Lectures.getLecturesArray()[i].slug) {
-      // console.log(getLectureBySlug(eventId));
         data = Lectures.getLectureBySlug(eventId);
       }
     }
@@ -40,11 +39,16 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   }
   function initFyrirlestur(gogn, json) {
-    console.log(gogn);
     const img = document.querySelector('.header__img');
     const p = document.querySelector('.header-p');
     const h1 = document.querySelector('.header-h1');
-    img.src = json.image;
+    if (!json.image) {
+      const header = document.querySelector('.header');
+      header.classList.add('fyrirlestur');
+      img.parentNode.removeChild(img);
+    } else {
+      img.src = json.image;
+    }
     p.innerHTML = json.category.toUpperCase();
     h1.innerHTML = json.title;
   }
@@ -78,7 +82,6 @@ document.addEventListener('DOMContentLoaded', () => {
         const atr = el('p', content[i].attribute);
         atr.style = 'font-style: italic';
         div.classList.add('fyrirlestur'); // gefa því gráan kassa
-        console.log(atr);
         div.appendChild(p);
         div.appendChild(atr);
       }
@@ -105,8 +108,9 @@ document.addEventListener('DOMContentLoaded', () => {
           p.style = 'white-space:pre-wrap';
           div.appendChild(p);
         } else {
-          const p = el('p', content[i].data);
-          console.log(p);
+          const p = el('p');
+          const texti = content[i].data.replace(/\n/g, '<br />');
+          p.innerHTML = texti;
           div.appendChild(p);
         }
       }
@@ -115,16 +119,16 @@ document.addEventListener('DOMContentLoaded', () => {
   }
   function loadContent() {
     const gogn = localStorage.getItem('data');
-    console.log(gogn);
     const json = JSON.parse(gogn);
     const { content } = json;
     initFyrirlestur(gogn, json);
-    console.log(content.length);
     uploadContent(content);
   }
   if (isLecturePage) {
     loadContent();
+    console.log(localStorage.data);
   } else {
+    localStorage.removeItem('data');
     const list = new List();
     list.load();
     getClickedItem();
