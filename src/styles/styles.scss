@@ -23,6 +23,7 @@ html { /* stylelint-disable-line */
 h1 {
   font-family: $font-title;
 }
+<<<<<<< HEAD
 
 h2 {
   font-family: $font-title;
@@ -33,6 +34,13 @@ h3 {
 }
 
 .container { //div tag yfir allt nema header
+=======
+body p {
+ // font-family: $font-main;
+}
+.container{ //div tag yfir allt nema header
+  width: 100%;
+>>>>>>> d313bab66e71fa3382240c212371a2243b59b25f
   display: flex;
   width: 100%;
   justify-content: center;
@@ -55,7 +63,7 @@ h3 {
     grid-template-columns: 1fr 1fr;
     grid-gap: $gutter;
   }
-  @media (min-width: 1500px) {
+  @media (min-width: 1200px) {
     grid-template-columns: 1fr 1fr 1fr;
     padding-right: 0px;
     padding-left: 0px;
@@ -79,32 +87,76 @@ h3 {
       justify-content: center;
     }
   }
+<<<<<<< HEAD
 
   &__btn { // class fyrir alla takka
     padding: $gutter/2;
     background-color: $whitegrey;
     border: none;
     border-radius: 10px;
+=======
+  &__btn{ // class fyrir alla takka
+    border-radius: 20px;
+    background-color: $whitegrey;
+    //border: 5px;
+    padding: $gutter/2;
+    
+    h3{
+      font-size: $grunnleturstaerd*2;
+      font-weight: bold;
+    }
+  }
+  &__html{
+>>>>>>> d313bab66e71fa3382240c212371a2243b59b25f
     transition: 0.3s;
 
     &:hover {
       cursor: pointer;
+<<<<<<< HEAD
       background-color: $grey;
     }
   }
 
   &__css { // css takki
+=======
+    }
+  }
+  &__javascript{
+    transition: 0.3s;
+    &:hover{
+      background-color: $grey;
+      cursor: pointer;
+    }
+  }
+  &__css{ // css takki
+    transition: 0.3s;
+>>>>>>> d313bab66e71fa3382240c212371a2243b59b25f
     @media (min-width: 1500px) {
       margin-right: $gutter*2;
       margin-left: $gutter*2;
+    }
+    &:hover{
+      background-color: $grey;
+      cursor: pointer;
     }
   }
 
   &__anmynd { // fyrirlestrar sem hafa ekki mynd
     display: flex;
-    align-items: flex-end;
+    flex-direction: column;
   }
 }
+.quote {
+  background-color: $whitegrey;
+  justify-content: space-between;
+  padding-bottom: $gutter/2;
+  p{ // p-tögg í hvert einasta fyrirlestur
+    font-size: 21px;
+    padding-top: $gutter;
+    padding-left: $gutter;
+  }
+}
+<<<<<<< HEAD
 
 button {
   font-family: $font-title;
@@ -113,11 +165,42 @@ button {
 }
 
 .fyrirlestur { // hvert einasti fyrirlestur
+=======
+
+.fyrirlestur{ // hvert einasti fyrirlestur
+  //display: run-in;
+  background-color: $whitegrey;
+>>>>>>> d313bab66e71fa3382240c212371a2243b59b25f
   padding-bottom: $gutter/2;
   background-color: $whitegrey;
   transition: 0.3s;
+<<<<<<< HEAD
 
   &:hover {
+=======
+  justify-content: space-between;
+  p{ // p-tögg í hvert einasta fyrirlestur
+    font-size: 21px;
+    padding-top: $gutter;
+    padding-left: $gutter;
+  }
+  &__info{
+    display: grid;
+    margin-top: auto;
+    grid-template-columns: 87% 13%;
+  }
+
+  &__check{
+    display: flex;
+    //justify-content: flex-end;
+    margin-right: auto;
+    padding-top: 30px;
+  }
+  &__check-p {
+    color: $darkgreen;
+  }
+  &:hover{
+>>>>>>> d313bab66e71fa3382240c212371a2243b59b25f
     cursor: pointer;
     background-color: $grey;
   }
@@ -127,12 +210,15 @@ button {
     font-family: $font-title;
     font-size: $grunnleturstaerd*2;
   }
+<<<<<<< HEAD
 
   p { // p-tögg í hvert einasta fyrirlestur
     padding-top: $gutter;
     padding-left: $gutter;
     font-size: 21px;
   }
+=======
+>>>>>>> d313bab66e71fa3382240c212371a2243b59b25f
 }
 
 //fyrirlestra section endar
@@ -146,7 +232,11 @@ button {
 }
 
 .btn__active {
-  background-color: $darkgreen;
+  background-color: $green;
+  transition: 0.3s;
+  &:hover{
+    background-color: $darkgreen;
+  }
 }
 
 .header { //hausinn
@@ -162,8 +252,13 @@ button {
     filter: alpha(opacity=50);
     opacity: 0.6;
     @media (min-width: 800px) {
+<<<<<<< HEAD
       width: auto;
       height: auto;
+=======
+      height: auto;
+      width: 100vw;
+>>>>>>> d313bab66e71fa3382240c212371a2243b59b25f
       overflow: visible;
     }
   }
@@ -215,8 +310,18 @@ header { //header elementið sjálft
       text-decoration: none;
     }
   }
+<<<<<<< HEAD
   
   ul {
+=======
+  &__last-pk:hover{
+    cursor: default;
+  }
+  &__last-pt:hover{
+    cursor: pointer;
+  }
+  ul{
+>>>>>>> d313bab66e71fa3382240c212371a2243b59b25f
     font-size: 21px;
   }
 
@@ -258,6 +363,15 @@ header { //header elementið sjálft
   color: $green;
 }
 
+<<<<<<< HEAD
 .klarad::before {
   content: "✓ ";
 }
+=======
+//initialize display lecture
+.html, .css, .javascript {
+  display: none;
+}
+
+
+>>>>>>> d313bab66e71fa3382240c212371a2243b59b25f
