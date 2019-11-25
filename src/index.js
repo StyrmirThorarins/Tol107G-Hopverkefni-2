@@ -92,6 +92,7 @@ document.addEventListener('DOMContentLoaded', () => {
         div.classList.add('lecture__iframe');
         iframe.src = content[i].data;
         iframe.frameborder = 0;
+        iframe.allowfullscreen = 0;
         div.appendChild(iframe);
       }
       if (content[i].type === 'image') {
