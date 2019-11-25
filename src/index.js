@@ -10,20 +10,18 @@ import { el } from './lib/helpers.js';
 document.addEventListener('DOMContentLoaded', () => {
   const page = document.querySelector('body');
   const isLecturePage = page.classList.contains('lecture-page');
-  const btnHtml = document.querySelector('.fyrirlestrar__html.fyrirlestrar__btn');
-  const btnCss = document.querySelector('.fyrirlestrar__css.fyrirlestrar__btn');
-  const btnJava = document.querySelector('.fyrirlestrar__javascript.fyrirlestrar__btn');
-  const fyrirlestrar = document.querySelector('.fyrirlestrar');
-  let html;
-  let css;
-  let java;
-  let x;
-  let child;
-  let hlekkur = window.location.href;
-  let data;
-  let eventId;
-  const atag = document.querySelector('.lecture__last-pt');
-  const klara = document.querySelector('.lecture__last-pk');
+  const btnHtml = document.querySelector('.fyrirlestrar__html.fyrirlestrar__btn');// html takki
+  const btnCss = document.querySelector('.fyrirlestrar__css.fyrirlestrar__btn'); // css takki
+  const btnJava = document.querySelector('.fyrirlestrar__javascript.fyrirlestrar__btn');// js takki
+  const fyrirlestrar = document.querySelector('.fyrirlestrar'); // fyrirlestra div
+  let html; // html button
+  let css; // css button
+  let java; // js button
+  let child; // börn fyrirlestra
+  let hlekkur = window.location.href; // sækir hlekkinn
+  let data; // breyta til að ná í lecture með slug
+  const atag = document.querySelector('.lecture__last-pt'); // sækir klára fyrirlestur textan neðst í fyrirlestur.html
+  const klara = document.querySelector('.lecture__last-pk'); // sækir til baka textan neðst í fyrirlestur.html
 
 
   /**
@@ -32,6 +30,7 @@ document.addEventListener('DOMContentLoaded', () => {
  * @param {compareDivId} e elementið sem smellt er á
  */
   function compareDivId(e) {
+    let eventId;
     if (e.target.id) {
       eventId = e.target.id;
     } else if (e.target.parentNode.id) {
@@ -54,7 +53,7 @@ document.addEventListener('DOMContentLoaded', () => {
    * Sækir hlutinn sem smellt var á
    */
   function getClickedItem() {
-    for (x = 0; x < fyrirlestrar.children.length; x += 1) {
+    for (let x = 0; x < fyrirlestrar.children.length; x += 1) {
       child = fyrirlestrar.children[x];
       child.addEventListener('click', compareDivId);
     }
@@ -78,6 +77,10 @@ document.addEventListener('DOMContentLoaded', () => {
     p.innerHTML = json.category.toUpperCase();
     h1.innerHTML = json.title;
   }
+  /**
+   * Sækir content fyrir síðu og bætir því í elementum ásamt því að birta á síðu
+   * @param {*} content json af contenti
+   */
   function uploadContent(content) {
     const lecture = document.querySelector('.lecture');
     const firstChild = lecture.childNodes[0];
@@ -100,6 +103,7 @@ document.addEventListener('DOMContentLoaded', () => {
       }
       if (content[i].type === 'text') {
         const p = el('p');
+        p.style = 'line-height: 2;';
         const texti = content[i].data.replace(/\n/g, '<br /><br />');
         p.innerHTML = texti;
         div.appendChild(p);
@@ -249,6 +253,9 @@ document.addEventListener('DOMContentLoaded', () => {
       fyrirlestrar.appendChild(fyrirlestur);
     }
   }
+  /**
+   * filter fyir takkana til að birta ákveðna fyrirlestra
+   */
   function filterContent() {
     html = document.querySelectorAll('.fyrirlestur__html');
     css = document.querySelectorAll('.fyrirlestur__css');
@@ -362,6 +369,9 @@ document.addEventListener('DOMContentLoaded', () => {
       }
     }
   }
+  /**
+   * toggla html takka
+   */
   function toggleBtnHtml() {
     if (btnHtml.classList.contains('btn__active')) {
       btnHtml.classList.remove('btn__active');
@@ -370,6 +380,9 @@ document.addEventListener('DOMContentLoaded', () => {
     }
     filterContent();
   }
+  /**
+   * toggla css takka
+   */
   function toggleBtnCss() {
     if (btnCss.classList.contains('btn__active')) {
       btnCss.classList.remove('btn__active');
@@ -378,6 +391,9 @@ document.addEventListener('DOMContentLoaded', () => {
     }
     filterContent();
   }
+  /**
+   * toggla javascript takka
+   */
   function toggleBtnJava() {
     console.log('java');
     if (btnJava.classList.contains('btn__active')) {

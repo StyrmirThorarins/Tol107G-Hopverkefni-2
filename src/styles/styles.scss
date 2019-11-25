@@ -22,6 +22,9 @@ html { /* stylelint-disable-line */
 h1,h2,h3{
   font-family: $font-title;
 }
+body p {
+ // font-family: $font-main;
+}
 .container{ //div tag yfir allt nema header
   width: 100%;
   display: flex;
