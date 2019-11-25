@@ -69,7 +69,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const h1 = document.querySelector('.header-h1');
     if (!json.image) {
       const header = document.querySelector('.header');
-      header.classList.add('fyrirlestur');
+      header.classList.add('quote');
       img.parentNode.removeChild(img);
     } else {
       img.src = json.image;
