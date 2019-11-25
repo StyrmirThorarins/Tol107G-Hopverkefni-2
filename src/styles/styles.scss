@@ -110,7 +110,16 @@ body p {
     flex-direction: column;
   }
 }
-
+.quote {
+  background-color: $whitegrey;
+  justify-content: space-between;
+  padding-bottom: $gutter/2;
+  p{ // p-tögg í hvert einasta fyrirlestur
+    font-size: 21px;
+    padding-top: $gutter;
+    padding-left: $gutter;
+  }
+}
 
 .fyrirlestur{ // hvert einasti fyrirlestur
   //display: run-in;

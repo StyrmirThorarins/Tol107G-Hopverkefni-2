@@ -97,6 +97,7 @@ document.addEventListener('DOMContentLoaded', () => {
       if (content[i].type === 'image') {
         const img = el('img');
         const p = el('p', content[i].caption);
+        p.style = 'font-style: italic';
         img.src = content[i].data;
         div.appendChild(img);
         div.appendChild(p);
@@ -112,7 +113,7 @@ document.addEventListener('DOMContentLoaded', () => {
         const p = el('p', content[i].data);
         const atr = el('p', content[i].attribute);
         atr.style = 'font-style: italic';
-        div.classList.add('fyrirlestur'); // gefa því gráan kassa
+        div.classList.add('quote'); // gefa því gráan kassa
         div.appendChild(p);
         div.appendChild(atr);
       }
