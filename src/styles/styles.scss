@@ -19,46 +19,59 @@ html { /* stylelint-disable-line */
   font-family: $font-main;
   font-size: 16px;
 }
-h1,h2,h3{
+
+h1 {
   font-family: $font-title;
 }
-.container{ //div tag yfir allt nema header
-  width: 100%;
+
+h2 {
+  font-family: $font-title;
+}
+
+h3 {
+  font-family: $font-title;
+}
+
+.container { //div tag yfir allt nema header
   display: flex;
+  width: 100%;
   justify-content: center;
 }
-.main{ //div til að setja content max-width
+
+.main { //div til að setja content max-width
   width: 100%;
   max-width: $max-width;
 }
 //Almennt utlit endar
 
 //fyrirlestra section byrjar
-.fyrirlestrar{ //div tag til að stýra utlit fyrirlestra div-tagga
+.fyrirlestrar { //div tag til að stýra utlit fyrirlestra div-tagga
   display: grid;
   grid-template-columns: 1fr;
   row-gap: $gutter*2;
-  padding-left: $gutter;
   padding-right: $gutter;
-  @media (min-width: 800px){
+  padding-left: $gutter;
+  @media (min-width: 800px) {
     grid-template-columns: 1fr 1fr;
     grid-gap: $gutter;
   }
   @media (min-width: 1500px) {
     grid-template-columns: 1fr 1fr 1fr;
-    padding-left: 0px;
     padding-right: 0px;
+    padding-left: 0px;
   }
-  &__img{
+  
+  &__img {
     width: 100%;
   }
-  &__takkar{ //divtagg yfir css html og javascript buttons
-    width: 100%;
+
+  &__takkar { //divtagg yfir css html og javascript buttons
     display: flex;
+    width: 100%;
     justify-content: space-between;
-    margin-top: $gutter*2;
-    padding-left: $gutter;
     padding-right: $gutter;
+    padding-left: $gutter;
+    margin-top: $gutter*2;
     @media (min-width: 800px) {
       justify-content: space-around;
     }
@@ -66,51 +79,59 @@ h1,h2,h3{
       justify-content: center;
     }
   }
-  &__btn{ // class fyrir alla takka
-    border-radius: 10px;
+
+  &__btn { // class fyrir alla takka
+    padding: $gutter/2;
     background-color: $whitegrey;
     border: none;
-    padding: $gutter/2;
+    border-radius: 10px;
     transition: 0.3s;
-    &:hover{
-      background-color: $grey;
+
+    &:hover {
       cursor: pointer;
-    }
-    h3{
-      font-size: $grunnleturstaerd*2;
-      font-weight: bold;
+      background-color: $grey;
     }
   }
-  &__css{ // css takki
+
+  &__css { // css takki
     @media (min-width: 1500px) {
-      margin-left: $gutter*2;
       margin-right: $gutter*2;
+      margin-left: $gutter*2;
     }
   }
-  &__anmynd{ // fyrirlestrar sem hafa ekki mynd
+
+  &__anmynd { // fyrirlestrar sem hafa ekki mynd
     display: flex;
     align-items: flex-end;
   }
 }
 
+button {
+  font-family: $font-title;
+  font-size: 24px;
+  font-weight: bold;
+}
 
-.fyrirlestur{ // hvert einasti fyrirlestur
-  background-color: $whitegrey;
+.fyrirlestur { // hvert einasti fyrirlestur
   padding-bottom: $gutter/2;
+  background-color: $whitegrey;
   transition: 0.3s;
-  &:hover{
+
+  &:hover {
     cursor: pointer;
     background-color: $grey;
   }
-  h2{ // h2-tagg í hvert fyrirlestur
+
+  h2 { // h2-tagg í hvert fyrirlestur
+    padding-left: $gutter;
     font-family: $font-title;
     font-size: $grunnleturstaerd*2;
-    padding-left: $gutter;
   }
-  p{ // p-tögg í hvert einasta fyrirlestur
-    font-size: 21px;
+
+  p { // p-tögg í hvert einasta fyrirlestur
     padding-top: $gutter;
     padding-left: $gutter;
+    font-size: 21px;
   }
 }
 
@@ -118,7 +139,7 @@ h1,h2,h3{
 
 //div tögg sem ekki eru í fyrirlestra div
 
-.btnContainer{ // container utan um takka-divið
+.btnContainer { // container utan um takka-divið
   width: 100%;
   max-width: $max-width;
   margin-bottom: $gutter*2;
@@ -128,98 +149,115 @@ h1,h2,h3{
   background-color: $darkgreen;
 }
 
-.header{ //hausinn
+.header { //hausinn
   position: relative;
-  text-align: center;
-  overflow: hidden;
   max-width: 100%;
   height: 100%;
+  overflow: hidden;
+  text-align: center;
+
   img { // mynd á haus
-    opacity: 0.6;
-    filter: alpha(opacity=50);
-    height: auto;
     width: 800px;
+    height: auto;
+    filter: alpha(opacity=50);
+    opacity: 0.6;
     @media (min-width: 800px) {
-      height: auto;
       width: auto;
+      height: auto;
       overflow: visible;
     }
   }
-  &__content{ //texti í haus
-    width: 100%;
-    height: 100%;
+
+  &__content { //texti í haus
     position: absolute;
     top: 50%;
     left: 50%;
+    width: 100%;
+    height: 100%;
     padding-top: 15vh;
-    transform: translate(-50%, -50%);
     font-size: 21px;
+    transform: translate(-50%, -50%);
   }
-  h1{ //heading í haus
+
+  h1 { //heading í haus
     font-size: $grunnleturstaerd*3;
   }
-  &__content > p{ // p tagg í haus
+
+  &__content > p { // p tagg í haus
     font-size: $grunnleturstaerd;
   }
 }
-header{ //header elementið sjálft
+
+header { //header elementið sjálft
   height: 300px;
 }
 
 // index.html lokið
 
 //fyrirlestur.html
-.lecture{
-  padding-left: $gutter;
-  padding-right: $gutter;
-  margin-top: $gutter*2;
+.lecture {
   display: grid;
-  grid-template-columns: 1fr;
   width: 100%;
   max-width: 800px;
+  padding-right: $gutter;
+  padding-left: $gutter;
+  margin-top: $gutter*2;
+  grid-template-columns: 1fr;
   row-gap: $gutter*2;
-  &__last{
-    text-align: center;
-    line-height: 2;
+
+  &__last {
     margin: $gutter*2;
-    a{
+    line-height: 2;
+    text-align: center;
+
+    a {
+      color: #000;
       text-decoration: none;
-      color: black;
     }
   }
-  ul{
+  
+  ul {
     font-size: 21px;
   }
-  iframe{
-    height: 100%;
-    left: 0;
+
+  iframe {
     position: absolute;
     top: 0;
+    left: 0;
     width: 100%;
+    height: 100%;
   }
-  &__iframe{
+
+  &__iframe {
+    position: relative;
+    // Calculated from the aspect ration of the content (in case of 16:9 it is 9/16= 0.5625)
+    padding-top: 56.25%;
     overflow: hidden;
-  // Calculated from the aspect ration of the content (in case of 16:9 it is 9/16= 0.5625)
-  padding-top: 56.25%;
-  position: relative;
   }
-  &__div{
+
+  &__div {
     width: 100%;
   }
-  img{
+
+  img {
     max-width: 100%;
   }
-  p{
+
+  p {
+    font-family: Lora, "Times New Roman";
     font-size: 24px;
   }
-  h1{
+
+  h1 {
+    font-family: monospace;
     font-size: 32px;
   }
 }
-.klarad{
+
+.klarad {
   color: $green;
 }
-.klarad:before {
-  content: '✓ ';
-}
 
+.klarad::before {
+  content: "✓ ";
+}

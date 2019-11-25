@@ -1,3 +1,4 @@
+/* eslint-disable max-len */
 /* eslint-disable import/prefer-default-export */
 /* eslint-disable linebreak-style */
 /*
@@ -31,7 +32,7 @@ export default class Lectures {
         console.log('first entry, slug', data[0].slug);
         console.log('first entry, data content for first entry', data[0].content);
   */
- static getLecturesArray() {
+  static getLecturesArray() {
     const lecturesJSON = this.getLecturesJSON();
     const lectures = Object.entries(lecturesJSON);
 
@@ -46,7 +47,7 @@ export default class Lectures {
 
      * @param {string} slug for the lecture to be returned
   */
- static getLectureBySlug(slug) {
+  static getLectureBySlug(slug) {
     const lectures = this.getLecturesArray();
 
     let lecture = null;

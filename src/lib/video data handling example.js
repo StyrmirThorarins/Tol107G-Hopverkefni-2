@@ -14,11 +14,11 @@ function getNewImage() {
       text = data.explanation;
       img = data.hdurl;
       videoURL = data.url;
-  
+
       const apodNode = document.querySelector('.apod');
       const titleNode = document.querySelector('.apod__title');
       removeMediaNode(apodNode);
-  
+
       if (data.media_type === 'image') {
         const imageNode = helpersModule.el('img');
         imageNode.classList.add('apod__image');
@@ -30,7 +30,7 @@ function getNewImage() {
 
         titleNode.before(vidDivNode);
       }
-  
+
       document.querySelector('.apod__title').innerText = title;
       document.querySelector('.apod__text').innerText = text;
     } else {
