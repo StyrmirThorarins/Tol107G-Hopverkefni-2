@@ -76,6 +76,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
     p.innerHTML = json.category.toUpperCase();
     h1.innerHTML = json.title;
+    document.title = json.title;
   }
   /**
    * Sækir content fyrir síðu og bætir því í elementum ásamt því að birta á síðu

@@ -189,7 +189,7 @@ body p {
     width: 800px;
     @media (min-width: 800px) {
       height: auto;
-      width: auto;
+      width: 100vw;
       overflow: visible;
     }
   }
