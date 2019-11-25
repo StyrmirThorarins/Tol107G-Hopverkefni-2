@@ -26,6 +26,3 @@ dist/
 
 demo.mp4
 *.code-workspace
-/src/lib/display-media.js
-/src/lib/nasa-api.js
-/src/lib/storage.js
