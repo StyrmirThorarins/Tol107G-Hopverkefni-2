@@ -47,7 +47,7 @@ body p {
     grid-template-columns: 1fr 1fr;
     grid-gap: $gutter;
   }
-  @media (min-width: 1500px) {
+  @media (min-width: 1200px) {
     grid-template-columns: 1fr 1fr 1fr;
     padding-left: 0px;
     padding-right: 0px;
