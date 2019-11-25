@@ -10,10 +10,13 @@ import { el } from './lib/helpers.js';
 document.addEventListener('DOMContentLoaded', () => {
   const page = document.querySelector('body');
   const isLecturePage = page.classList.contains('lecture-page');
-  const fyrirlestrar = document.querySelector('.fyrirlestrar');
-  const btnCss = document.querySelector('.fyrirlestrar__css.fyrirlestrar__btn');
   const btnHtml = document.querySelector('.fyrirlestrar__html.fyrirlestrar__btn');
+  const btnCss = document.querySelector('.fyrirlestrar__css.fyrirlestrar__btn');
   const btnJava = document.querySelector('.fyrirlestrar__javascript.fyrirlestrar__btn');
+  const fyrirlestrar = document.querySelector('.fyrirlestrar');
+  let html;
+  let css;
+  let java;
   let x;
   let child;
   let hlekkur = window.location.href;
@@ -176,7 +179,7 @@ document.addEventListener('DOMContentLoaded', () => {
       klara.innerHTML = 'Fyrirlestur kláraður';
       klara.classList.add('klarad');
     } else {
-      klara.innerHTML = 'Fyrirlestur kláraður';
+      klara.innerHTML = 'Klára fyrirlestur';
       klara.classList.remove('klarad');
     }
   }
@@ -224,6 +227,8 @@ document.addEventListener('DOMContentLoaded', () => {
       if (lectures[i].slug === 'js-dom') fyrirlestur.classList.add('fyrirlestur__dom');
 
       fyrirlestur.setAttribute('id', lectures[i].slug);
+      fyrirlestur.classList.add(lectures[i].category);
+      fyrirlestur.classList.add(`fyrirlestur__${lectures[i].category}`)
       const pUpper = lectures[i].category.toUpperCase();
       p.innerHTML = pUpper;
       h2.innerHTML = lectures[i].title;
@@ -244,12 +249,126 @@ document.addEventListener('DOMContentLoaded', () => {
       fyrirlestrar.appendChild(fyrirlestur);
     }
   }
+  function filterContent() {
+    html = document.querySelectorAll('.fyrirlestur__html');
+    css = document.querySelectorAll('.fyrirlestur__css');
+    java = document.querySelectorAll('.fyrirlestur__javascript');
+    if ((!btnHtml.classList.contains('btn__active') && !btnCss.classList.contains('btn__active')) && !btnJava.classList.contains('btn__active')) {
+      for (let i = 0; i < html.length; i += 1) {
+        html[i].classList.toggle('html', false);
+      }
+      for (let i = 0; i < css.length; i += 1) {
+        css[i].classList.toggle('css', false);
+      }
+      for (let i = 0; i < java.length; i += 1) {
+        java[i].classList.toggle('javascript', false);
+      }
+    }
+
+    // aðeins ef html er active
+    if ((btnHtml.classList.contains('btn__active') && !btnCss.classList.contains('btn__active')) && !btnJava.classList.contains('btn__active')) {
+      console.log(html.length);
+      for (let i = 0; i < html.length; i += 1) {
+        console.log(html[i]);
+        html[i].classList.toggle('html', false);
+      }
+      for (let i = 0; i < css.length; i += 1) {
+        css[i].classList.toggle('css', true);
+      }
+      for (let i = 0; i < java.length; i += 1) {
+        java[i].classList.toggle('javascript', true);
+      }
+    }
+    // ef öll eru active
+    if ((btnHtml.classList.contains('btn__active') && btnCss.classList.contains('btn__active')) && btnJava.classList.contains('btn__active')) {
+      console.log(html.length);
+      for (let i = 0; i < html.length; i += 1) {
+        console.log(html[i]);
+        html[i].classList.toggle('html', false);
+      }
+      for (let i = 0; i < css.length; i += 1) {
+        css[i].classList.toggle('css', false);
+      }
+      for (let i = 0; i < java.length; i += 1) {
+        java[i].classList.toggle('javascript', false);
+      }
+    }
+    // aðeins ef html og css eru active
+    if ((btnHtml.classList.contains('btn__active') && btnCss.classList.contains('btn__active')) && !btnJava.classList.contains('btn__active')) {
+      console.log(html.length);
+      for (let i = 0; i < html.length; i += 1) {
+        console.log(html[i]);
+        html[i].classList.toggle('html', false);
+      }
+      for (let i = 0; i < css.length; i += 1) {
+        css[i].classList.toggle('css', false);
+      }
+      for (let i = 0; i < java.length; i += 1) {
+        java[i].classList.toggle('javascript', true);
+      }
+    }
+    // aðeins ef html og javascript eru active
+    if ((btnHtml.classList.contains('btn__active') && !btnCss.classList.contains('btn__active')) && btnJava.classList.contains('btn__active')) {
+      console.log(html.length);
+      for (let i = 0; i < html.length; i += 1) {
+        console.log(html[i]);
+        html[i].classList.toggle('html', false);
+      }
+      for (let i = 0; i < css.length; i += 1) {
+        css[i].classList.toggle('css', true);
+      }
+      for (let i = 0; i < java.length; i += 1) {
+        java[i].classList.toggle('javascript', false);
+      }
+    }
+    // aðeins css active
+    if ((!btnHtml.classList.contains('btn__active') && btnCss.classList.contains('btn__active')) && !btnJava.classList.contains('btn__active')) {
+      console.log(html.length);
+      for (let i = 0; i < html.length; i += 1) {
+        console.log(html[i]);
+        html[i].classList.toggle('html', true);
+      }
+      for (let i = 0; i < css.length; i += 1) {
+        css[i].classList.toggle('css', false);
+      }
+      for (let i = 0; i < java.length; i += 1) {
+        java[i].classList.toggle('javascript', true);
+      }
+    }
+    // css og java active
+    if ((!btnHtml.classList.contains('btn__active') && btnCss.classList.contains('btn__active')) && btnJava.classList.contains('btn__active')) {
+      console.log(html.length);
+      for (let i = 0; i < html.length; i += 1) {
+        html[i].classList.toggle('html', true);
+      }
+      for (let i = 0; i < css.length; i += 1) {
+        css[i].classList.toggle('css', false);
+      }
+      for (let i = 0; i < java.length; i += 1) {
+        java[i].classList.toggle('javascript', false);
+      }
+    }
+    // aðeins ef java er active 
+    if ((!btnHtml.classList.contains('btn__active') && !btnCss.classList.contains('btn__active')) && btnJava.classList.contains('btn__active')) {
+      console.log('java');
+      for (let i = 0; i < html.length; i += 1) {
+        html[i].classList.toggle('html', true);
+      }
+      for (let i = 0; i < css.length; i += 1) {
+        css[i].classList.toggle('css', true);
+      }
+      for (let i = 0; i < java.length; i += 1) {
+        java[i].classList.toggle('javascript', false);
+      }
+    }
+  }
   function toggleBtnHtml() {
     if (btnHtml.classList.contains('btn__active')) {
       btnHtml.classList.remove('btn__active');
     } else {
       btnHtml.classList.add('btn__active');
     }
+    filterContent();
   }
   function toggleBtnCss() {
     if (btnCss.classList.contains('btn__active')) {
@@ -257,15 +376,17 @@ document.addEventListener('DOMContentLoaded', () => {
     } else {
       btnCss.classList.add('btn__active');
     }
+    filterContent();
   }
   function toggleBtnJava() {
+    console.log('java');
     if (btnJava.classList.contains('btn__active')) {
       btnJava.classList.remove('btn__active');
     } else {
       btnJava.classList.add('btn__active');
     }
+    filterContent();
   }
-
   if (isLecturePage) {
     loadContent(); // birta hluti í fyrirlestur
     atag.addEventListener('click', tilBaka);
@@ -278,6 +399,7 @@ document.addEventListener('DOMContentLoaded', () => {
     btnHtml.addEventListener('click', toggleBtnHtml);
     btnCss.addEventListener('click', toggleBtnCss);
     btnJava.addEventListener('click', toggleBtnJava);
+    filterContent();
     getClickedItem();
   }
 });

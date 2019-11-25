@@ -67,40 +67,50 @@ h1,h2,h3{
     }
   }
   &__btn{ // class fyrir alla takka
-    border-radius: 10px;
+    border-radius: 20px;
     background-color: $whitegrey;
-    border: none;
+    //border: 5px;
     padding: $gutter/2;
-    transition: 0.3s;
-    &:hover{
-      background-color: $grey;
-      cursor: pointer;
-    }
+    
     h3{
       font-size: $grunnleturstaerd*2;
       font-weight: bold;
     }
   }
+  &__html{
+    transition: 0.3s;
+    &:hover{
+      background-color: $grey;
+      cursor: pointer;
+    }
+  }
+  &__javascript{
+    transition: 0.3s;
+    &:hover{
+      background-color: $grey;
+      cursor: pointer;
+    }
+  }
   &__css{ // css takki
+    transition: 0.3s;
     @media (min-width: 1500px) {
       margin-left: $gutter*2;
       margin-right: $gutter*2;
+    }
+    &:hover{
+      background-color: $grey;
+      cursor: pointer;
     }
   }
   &__anmynd{ // fyrirlestrar sem hafa ekki mynd
     display: flex;
     flex-direction: column;
-   // display: flex;
-   // align-items: flex-end;
-  /*  .fyrirlestur__check{
-      padding-top: 30px;
-      padding-left: 50px;
-    } */
   }
 }
 
 
 .fyrirlestur{ // hvert einasti fyrirlestur
+  //display: run-in;
   background-color: $whitegrey;
   padding-bottom: $gutter/2;
   transition: 0.3s;
@@ -134,16 +144,8 @@ h1,h2,h3{
     font-size: $grunnleturstaerd*2;
     padding-left: $gutter;
   }
-  &__element &__check{
-    //padding-right: 240px;
-  }
-  &__gildi &__check{
-   // margin-top: 30px;
-  }
-  &__dom &__check{
-    //padding-left: 10vw;
-  }
 }
+
 //fyrirlestra section endar
 
 //div tögg sem ekki eru í fyrirlestra div
@@ -152,6 +154,14 @@ h1,h2,h3{
   width: 100%;
   max-width: $max-width;
   margin-bottom: $gutter*2;
+}
+
+.btn__active {
+  background-color: $green;
+  transition: 0.3s;
+  &:hover{
+    background-color: $darkgreen;
+  }
 }
 
 .header{ //hausinn
@@ -250,6 +260,11 @@ header{ //header elementið sjálft
 }
 .klarad:before {
   content: '✓ ';
+}
+
+//initialize display lecture
+.html, .css, .javascript {
+  display: none;
 }
 
 
