@@ -89,7 +89,13 @@ h1,h2,h3{
   }
   &__anmynd{ // fyrirlestrar sem hafa ekki mynd
     display: flex;
-    align-items: flex-end;
+    flex-direction: column;
+   // display: flex;
+   // align-items: flex-end;
+  /*  .fyrirlestur__check{
+      padding-top: 30px;
+      padding-left: 50px;
+    } */
   }
 }
 
@@ -98,6 +104,27 @@ h1,h2,h3{
   background-color: $whitegrey;
   padding-bottom: $gutter/2;
   transition: 0.3s;
+  justify-content: space-between;
+  p{ // p-tögg í hvert einasta fyrirlestur
+    font-size: 21px;
+    padding-top: $gutter;
+    padding-left: $gutter;
+  }
+  &__info{
+    display: grid;
+    margin-top: auto;
+    grid-template-columns: 87% 13%;
+  }
+
+  &__check{
+    display: flex;
+    //justify-content: flex-end;
+    margin-right: auto;
+    padding-top: 30px;
+  }
+  &__check-p {
+    color: $darkgreen;
+  }
   &:hover{
     cursor: pointer;
     background-color: $grey;
@@ -107,10 +134,14 @@ h1,h2,h3{
     font-size: $grunnleturstaerd*2;
     padding-left: $gutter;
   }
-  p{ // p-tögg í hvert einasta fyrirlestur
-    font-size: 21px;
-    padding-top: $gutter;
-    padding-left: $gutter;
+  &__element &__check{
+    //padding-right: 240px;
+  }
+  &__gildi &__check{
+   // margin-top: 30px;
+  }
+  &__dom &__check{
+    //padding-left: 10vw;
   }
 }
 //fyrirlestra section endar
@@ -182,6 +213,9 @@ header{ //header elementið sjálft
       color: black;
     }
   }
+  &__last-pk:hover{
+    cursor: default;
+  }
   ul{
     font-size: 21px;
   }
@@ -217,4 +251,5 @@ header{ //header elementið sjálft
 .klarad:before {
   content: '✓ ';
 }
+
 

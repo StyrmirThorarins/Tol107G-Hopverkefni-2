@@ -1,4 +1,6 @@
 /* eslint-disable linebreak-style */
+/* eslint-disable import/extensions */
+/* eslint-disable linebreak-style */
 /* eslint-disable no-empty */
 import List from './lib/list.js';
 import Lectures from './lib/lectures.js';
@@ -9,6 +11,9 @@ document.addEventListener('DOMContentLoaded', () => {
   const page = document.querySelector('body');
   const isLecturePage = page.classList.contains('lecture-page');
   const fyrirlestrar = document.querySelector('.fyrirlestrar');
+  const btnCss = document.querySelector('.fyrirlestrar__css.fyrirlestrar__btn');
+  const btnHtml = document.querySelector('.fyrirlestrar__html.fyrirlestrar__btn');
+  const btnJava = document.querySelector('.fyrirlestrar__javascript.fyrirlestrar__btn');
   let x;
   let child;
   let hlekkur = window.location.href;
@@ -28,8 +33,10 @@ document.addEventListener('DOMContentLoaded', () => {
       eventId = e.target.id;
     } else if (e.target.parentNode.id) {
       eventId = e.target.parentNode.id;
-    } else {
+    } else if (e.target.parentNode.parentNode.id) {
       eventId = e.target.parentNode.parentNode.id;
+    } else {
+      eventId = e.target.parentNode.parentNode.parentNode.id;
     }
     for (let i = 0; i < Lectures.getLecturesArray().length; i += 1) {
       if (eventId === Lectures.getLecturesArray()[i].slug) {
@@ -40,12 +47,20 @@ document.addEventListener('DOMContentLoaded', () => {
     hlekkur += `fyrirlestur.html?slug=${eventId}`;
     window.location.href = hlekkur;
   }
+  /**
+   * Sækir hlutinn sem smellt var á
+   */
   function getClickedItem() {
     for (x = 0; x < fyrirlestrar.children.length; x += 1) {
       child = fyrirlestrar.children[x];
       child.addEventListener('click', compareDivId);
     }
   }
+  /**
+   * Sækir gogn og stillir upp fyrirlestur
+   * @param {*} gogn strengur með uppl um gögn
+   * @param {*} json json af gogn
+   */
   function initFyrirlestur(gogn, json) {
     const img = document.querySelector('.header__img');
     const p = document.querySelector('.header-p');
@@ -126,11 +141,18 @@ document.addEventListener('DOMContentLoaded', () => {
       lecture.insertBefore(div, firstChild);
     }
   }
+  /**
+   * on click fall fyrir til baka
+   */
   function tilBaka() {
     const n = hlekkur.lastIndexOf('/');
     hlekkur = hlekkur.substring(0, n);
     window.location.href = hlekkur;
   }
+  /**
+   * onclick fall til þess að savea fyrirlestur
+   * @param {*} e  p tag click event
+   */
   function finishContent(e) {
     const gogn = localStorage.getItem('data');
     const json = JSON.parse(gogn);
@@ -145,22 +167,117 @@ document.addEventListener('DOMContentLoaded', () => {
       e.target.classList.remove('klarad');
     }
   }
+  /**
+   * Athuga hvort lectur se nu þegar save-að til þess að frumstilla "fyrirlestur kláraður"
+   * @param {*} json gögn um síðuna
+   */
+  function isLectureFinished(json) {
+    if (LectureLocalStorage.getLectureStatus(json.slug)) {
+      klara.innerHTML = 'Fyrirlestur kláraður';
+      klara.classList.add('klarad');
+    } else {
+      klara.innerHTML = 'Fyrirlestur kláraður';
+      klara.classList.remove('klarad');
+    }
+  }
+  /**
+   * fall til að loada fyrirlestur, kallar á isLecture finished
+   * , initFyrirlestur og uploadContent
+   */
   function loadContent() {
     const gogn = localStorage.getItem('data');
     const json = JSON.parse(gogn);
-    console.log(json);
     const { content } = json;
+    isLectureFinished(json);
     initFyrirlestur(gogn, json);
     uploadContent(content);
   }
+
+  /**
+   * Byr til og renderar div tögg í index
+   */
+  function openLectures() {
+    const lectures = Lectures.getLecturesArray();
+    for (let i = 0; i < lectures.length; i += 1) {
+      const fyrirlestur = el('div');
+      const info = el('div');
+      const div2 = el('div');
+      div2.classList.add('fyrirlestur__infoContent');
+      const p = el('p');
+      const cmark = el('h2');
+      const h2 = el('h2');
+      const check = el('div');
+      const img = el('img');
+      img.classList.add('fyrirlestrar__img');
+      if (lectures[i].thumbnail) {
+        img.src = lectures[i].thumbnail;
+        fyrirlestur.appendChild(img);
+      } else {
+        fyrirlestur.classList.add('fyrirlestrar__anmynd');
+      }
+      check.classList.add('fyrirlestur__check');
+      info.classList.add('fyrirlestur__info');
+      fyrirlestur.classList.add('fyrirlestur');
+      if (lectures[i].title === 'Element') fyrirlestur.classList.add('fyrirlestur__element');
+      if (lectures[i].title === 'Box model') fyrirlestur.classList.add('fyrirlestur__boxmodel');
+      if (lectures[i].slug === 'js-basic') fyrirlestur.classList.add('fyrirlestur__gildi');
+      if (lectures[i].slug === 'js-dom') fyrirlestur.classList.add('fyrirlestur__dom');
+
+      fyrirlestur.setAttribute('id', lectures[i].slug);
+      const pUpper = lectures[i].category.toUpperCase();
+      p.innerHTML = pUpper;
+      h2.innerHTML = lectures[i].title;
+      cmark.innerHTML = '✓';
+      cmark.classList.add('fyrirlestur__check-p');
+      cmark.classList.add(lectures[i].slug);
+      check.appendChild(cmark);
+      div2.appendChild(p);
+      div2.appendChild(h2);
+      info.appendChild(div2);
+      info.appendChild(check);
+      fyrirlestur.appendChild(info);
+      if (LectureLocalStorage.getLectureStatus(lectures[i].slug)) {
+        cmark.style.display = 'flex';
+      } else {
+        cmark.style.display = 'none';
+      }
+      fyrirlestrar.appendChild(fyrirlestur);
+    }
+  }
+  function toggleBtnHtml() {
+    if (btnHtml.classList.contains('btn__active')) {
+      btnHtml.classList.remove('btn__active');
+    } else {
+      btnHtml.classList.add('btn__active');
+    }
+  }
+  function toggleBtnCss() {
+    if (btnCss.classList.contains('btn__active')) {
+      btnCss.classList.remove('btn__active');
+    } else {
+      btnCss.classList.add('btn__active');
+    }
+  }
+  function toggleBtnJava() {
+    if (btnJava.classList.contains('btn__active')) {
+      btnJava.classList.remove('btn__active');
+    } else {
+      btnJava.classList.add('btn__active');
+    }
+  }
+
   if (isLecturePage) {
-    loadContent();
+    loadContent(); // birta hluti í fyrirlestur
     atag.addEventListener('click', tilBaka);
     klara.addEventListener('click', finishContent);
   } else {
+    openLectures(); // rendera div tögg
     localStorage.removeItem('data');
     const list = new List();
     list.load();
+    btnHtml.addEventListener('click', toggleBtnHtml);
+    btnCss.addEventListener('click', toggleBtnCss);
+    btnJava.addEventListener('click', toggleBtnJava);
     getClickedItem();
   }
 });
