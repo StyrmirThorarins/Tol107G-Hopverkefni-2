@@ -1,6 +1,6 @@
 /* eslint-disable linebreak-style */
+/* eslint-disable no-trailing-spaces */
 /* eslint-disable import/extensions */
-/* eslint-disable linebreak-style */
 /* eslint-disable no-empty */
 import Lectures from './lectures.js';
 import LectureLocalStorage from './localStorage.js';
@@ -234,7 +234,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
       fyrirlestur.setAttribute('id', lectures[i].slug);
       fyrirlestur.classList.add(lectures[i].category);
-      fyrirlestur.classList.add(`fyrirlestur__${lectures[i].category}`)
+      fyrirlestur.classList.add(`fyrirlestur__${lectures[i].category}`);
       const pUpper = lectures[i].category.toUpperCase();
       p.innerHTML = pUpper;
       h2.innerHTML = lectures[i].title;

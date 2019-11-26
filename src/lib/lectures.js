@@ -1,3 +1,4 @@
+/* eslint-disable consistent-return */
 /* eslint-disable max-len */
 /* eslint-disable import/prefer-default-export */
 /* eslint-disable linebreak-style */
@@ -16,7 +17,7 @@ export default class Lectures {
     if (req.status === 200) {
       // console.log('readLocalJSON -> read file data:', req.responseText);
       return req.responseText;
-    }  
+    }
   }
 
   // returns JSON object of all lectures
@@ -57,15 +58,5 @@ export default class Lectures {
       }
     }
     return lecture;
-  }
-
-  static test1() {
-    // const data = getLecturesArray();
-    // console.log('data returned, slug: ', data[0].slug);
-    // console.log('data returned, content: ', data[0].content);
-
-    const dataSearched = getLectureBySlug('js-programs');
-    // console.log('dataSearched returned: ', dataSearched);
-    // console.log('dataSearched returned, title: ', dataSearched.title);
   }
 }
