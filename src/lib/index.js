@@ -89,6 +89,7 @@ document.addEventListener('DOMContentLoaded', () => {
       div.classList.add('lecture__div');
       if (content[i].type === 'youtube') {
         const iframe = el('iframe');
+        iframe.classList.add('lecture__iframe--vid');
         div.classList.add('lecture__iframe');
         iframe.src = content[i].data;
         iframe.frameborder = 0;
@@ -97,7 +98,9 @@ document.addEventListener('DOMContentLoaded', () => {
       }
       if (content[i].type === 'image') {
         const img = el('img');
+        img.classList.add('lecture__image');
         const p = el('p', content[i].caption);
+        p.classList.add('lecture__p--image');
         p.style = 'font-style: italic';
         img.src = content[i].data;
         div.appendChild(img);
@@ -105,6 +108,7 @@ document.addEventListener('DOMContentLoaded', () => {
       }
       if (content[i].type === 'text') {
         const p = el('p');
+        p.classList.add('lecture__p');
         p.style = 'line-height: 2;';
         const texti = content[i].data.replace(/\n/g, '<br /><br />');
         p.innerHTML = texti;
@@ -115,19 +119,23 @@ document.addEventListener('DOMContentLoaded', () => {
         const atr = el('p', content[i].attribute);
         atr.style = 'font-style: italic';
         div.classList.add('quote'); // gefa því gráan kassa
+        p.classList.add('quote__p');
         div.appendChild(p);
         div.appendChild(atr);
       }
       if (content[i].type === 'heading') {
         const h1 = el('h1', content[i].data);
+        h1.classList.add('lecture__h1');
         div.appendChild(h1);
       }
       if (content[i].type === 'list') {
         const list = el('ul');
+        list.classList.add('.lecture__ul');
         let li;
         let p;
         for (let k = 0; k < content[i].data.length; k += 1) {
           p = el('p', content[i].data[k]);
+          p.classList.add('lecture__p');
           li = el('li');
           li.appendChild(p);
           list.appendChild(li);
@@ -213,8 +221,10 @@ document.addEventListener('DOMContentLoaded', () => {
       const div2 = el('div');
       div2.classList.add('fyrirlestur__infoContent');
       const p = el('p');
+      p.classList.add('fyrirlestur__p');
       const cmark = el('h2');
       const h2 = el('h2');
+      h2.classList.add('fyrirlestur__h2');
       const check = el('div');
       const img = el('img');
       img.classList.add('fyrirlestrar__img');

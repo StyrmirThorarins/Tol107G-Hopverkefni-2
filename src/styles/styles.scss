@@ -60,7 +60,7 @@ h3 {
     padding-right: 0;
     padding-left: 0;
   }
-  
+
   &__img {
     width: 100%;
   }
@@ -82,14 +82,12 @@ h3 {
 
   &__btn { // class fyrir alla takka
     padding: $gutter/2;
+    font-family: $font-title;
+    font-size: 24px;
+    font-weight: bold;
     background-color: $whitegrey;
     border-radius: 20px;
     //border: 5px;
-    
-    h3 {
-      font-size: $grunnleturstaerd*2;
-      font-weight: bold;
-    }
   }
 
   &__html {
@@ -132,18 +130,13 @@ h3 {
   padding-bottom: $gutter/2;
   background-color: $whitegrey;
   justify-content: space-between;
-
-  p { // p-tögg í hvert einasta fyrirlestur
-    padding-top: $gutter;
-    padding-left: $gutter;
-    font-size: 21px;
-  }
 }
 
-button {
-  font-family: $font-title;
-  font-size: 24px;
-  font-weight: bold;
+.quote__p {
+  // p-tögg í hvert einasta fyrirlestur
+  padding-top: $gutter;
+  padding-left: $gutter;
+  font-size: 21px;
 }
 
 .fyrirlestur { // hvert einasti fyrirlestur
@@ -153,7 +146,7 @@ button {
   transition: 0.3s;
   justify-content: space-between;
 
-  p { // p-tögg í hvert einasta fyrirlestur
+  &__p { // p-tögg í hvert einasta fyrirlestur
     padding-top: $gutter;
     padding-left: $gutter;
     font-size: 21px;
@@ -181,7 +174,7 @@ button {
     background-color: $grey;
   }
 
-  h2 { // h2-tagg í hvert fyrirlestur
+  &__h2 { // h2-tagg í hvert fyrirlestur
     padding-left: $gutter;
     font-family: $font-title;
     font-size: $grunnleturstaerd*2;
@@ -237,11 +230,11 @@ button {
     transform: translate(-50%, -50%);
   }
 
-  h1 { //heading í haus
+  &__content--h1 { //heading í haus
     font-size: $grunnleturstaerd*3;
   }
 
-  &__content > p { // p tagg í haus
+  &__content--p { // p tagg í haus
     font-size: $grunnleturstaerd;
   }
 }
@@ -266,14 +259,11 @@ header { //header elementið sjálft
   &__last {
     margin: $gutter*2;
     line-height: 2;
+    color: #000;
     text-align: center;
-
-    a {
-      color: #000;
-      text-decoration: none;
-    }
+    text-decoration: none;
   }
-  
+
   &__last-pk:hover {
     cursor: default;
   }
@@ -282,11 +272,11 @@ header { //header elementið sjálft
     cursor: pointer;
   }
 
-  ul {
+  &__ul {
     font-size: 21px;
   }
 
-  iframe {
+  &__iframe--vid {
     position: absolute;
     top: 0;
     left: 0;
@@ -305,16 +295,16 @@ header { //header elementið sjálft
     width: 100%;
   }
 
-  img {
+  &__image {
     max-width: 100%;
   }
 
-  p {
+  &__p {
     font-family: Lora, "Times New Roman";
     font-size: 24px;
   }
 
-  h1 {
+  &__h1 {
     font-family: monospace;
     font-size: 32px;
   }

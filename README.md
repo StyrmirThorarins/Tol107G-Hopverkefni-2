@@ -51,17 +51,14 @@
 1. 
 * Natanel Demissew Ketema
 * ndk1@hi.is
-* kt. 300799-4269
 
 2. 
-* 
-* 
-* 
+* Styrmir Þórarinsson
+* sth315@hi.is
 
 3. 
 * Björn Óli Eyþórsson
 * boe15@hi.is
-* kt. 241099-2379
 
 ## Lýsing á verkefni
 
