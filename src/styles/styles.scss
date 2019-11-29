@@ -52,6 +52,12 @@ body p {
     padding-left: 0px;
     padding-right: 0px;
   }
+  &-p{
+    font-size: 3vw;
+    @media (max-width: 800px) {
+      font-size: 5vw;
+    }
+  }
   &__img{
     width: 100%;
   }
@@ -204,7 +210,14 @@ body p {
     font-size: 21px;
   }
   h1{ //heading í haus
-    font-size: $grunnleturstaerd*3;
+    //font-size: $grunnleturstaerd*3;
+    font-size: 5vw;
+    @media (max-width: 900px) {
+      font-size: 7vw;
+    }
+    @media (max-width: 500px) {
+      font-size: 12vw;
+    }
   }
   &__content > p{ // p tagg í haus
     font-size: $grunnleturstaerd;

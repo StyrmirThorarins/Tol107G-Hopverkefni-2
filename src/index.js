@@ -235,7 +235,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
       fyrirlestur.setAttribute('id', lectures[i].slug);
       fyrirlestur.classList.add(lectures[i].category);
-      fyrirlestur.classList.add(`fyrirlestur__${lectures[i].category}`)
+      fyrirlestur.classList.add(`fyrirlestur__${lectures[i].category}`);
       const pUpper = lectures[i].category.toUpperCase();
       p.innerHTML = pUpper;
       h2.innerHTML = lectures[i].title;
@@ -358,7 +358,7 @@ document.addEventListener('DOMContentLoaded', () => {
         java[i].classList.toggle('javascript', false);
       }
     }
-    // aðeins ef java er active 
+    // aðeins ef java er active
     if ((!btnHtml.classList.contains('btn__active') && !btnCss.classList.contains('btn__active')) && btnJava.classList.contains('btn__active')) {
       console.log('java');
       for (let i = 0; i < html.length; i += 1) {
