@@ -1,7 +1,3 @@
-/* eslint-disable consistent-return */
-/* eslint-disable max-len */
-/* eslint-disable import/prefer-default-export */
-/* eslint-disable linebreak-style */
 /*
   functions to handle data for lectures
 */
@@ -15,15 +11,14 @@ export default class Lectures {
     req.open('GET', `${window.location.href}/${filename}`, false);
     req.send(null);
     if (req.status === 200) {
-      // console.log('readLocalJSON -> read file data:', req.responseText);
       return req.responseText;
     }
+    return null;
   }
 
   // returns JSON object of all lectures
   static getLecturesJSON() {
     const lecturesJSON = JSON.parse(this.readLocalJSON(LECTUREFILENAME));
-    // console.log('getLecturesJSON -> lecturesJSON:', lecturesJSON);
     return lecturesJSON;
   }
 
@@ -40,7 +35,8 @@ export default class Lectures {
     return lectures[0][1];
   }
 
-  /**  return one lecture, found by slug passed, returns lecture JSON object if found, returns null if not found
+  /**  return one lecture, found by slug passed,
+     * returns lecture JSON object if found, returns null if not found
      * How to use:
      *   const data = getLectureBySlug('some-slug-string');
      *   console.log('single entry data returned', data);

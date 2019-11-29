@@ -1,7 +1,3 @@
-/* eslint-disable linebreak-style */
-/* eslint-disable no-trailing-spaces */
-/* eslint-disable import/extensions */
-/* eslint-disable no-empty */
 import Lectures from './lectures.js';
 import LectureLocalStorage from './localStorage.js';
 import { el } from './helpers.js';
@@ -367,7 +363,7 @@ document.addEventListener('DOMContentLoaded', () => {
         java[i].classList.toggle('javascript', false);
       }
     }
-    // aðeins ef java er active 
+    // aðeins ef java er active
     if ((!btnHtml.classList.contains('btn__active') && !btnCss.classList.contains('btn__active')) && btnJava.classList.contains('btn__active')) {
       console.log('java');
       for (let i = 0; i < html.length; i += 1) {
