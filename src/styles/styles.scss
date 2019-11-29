@@ -20,15 +20,15 @@ html { /* stylelint-disable-line */
   font-size: 16px;
 }
 
-h1 {
+h1 { /* stylelint-disable-line */
   font-family: $font-title;
 }
 
-h2 {
+h2 { /* stylelint-disable-line */
   font-family: $font-title;
 }
 
-h3 {
+h3 { /* stylelint-disable-line */
   font-family: $font-title;
 }
 
@@ -239,7 +239,7 @@ h3 {
   }
 }
 
-header { //header elementið sjálft
+header { /* stylelint-disable-line */ //header elementið sjálft
   height: 300px;
 }
 
