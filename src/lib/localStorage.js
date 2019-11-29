@@ -1,5 +1,3 @@
-/* eslint-disable max-len */
-/* eslint-disable linebreak-style */
 /*
   Module that handles the saving, loading and modifying of data in localStorage
 */
@@ -11,7 +9,8 @@ export default class LectureLocalStorage {
    * Check to see if lecture has been completed.
    *
    * @param {string} slug for the lecture status being saved
-   * Returns true if there is an entry in localstorage and the lecture is saved as completed, otherwise returns false.
+   * Returns true if there is an entry in localstorage and
+   * the lecture is saved as completed, otherwise returns false.
    *
    */
   static getLectureStatus(slug) {

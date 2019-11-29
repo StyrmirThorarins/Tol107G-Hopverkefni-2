@@ -6,7 +6,10 @@ module.exports = {
   rules: {
     'no-console': ['error', { allow: ['info', 'warn', 'error'] }],
     'class-methods-use-this': 0,
-    'no-console': 'off',
+    'no-console': 'off',    
+    'import/extensions': 'off',
+    'linebreak-style': 'off',
+    'no-empty': 'off'
   },
   plugins: ['import'],
 };
