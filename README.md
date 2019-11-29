@@ -49,12 +49,12 @@
 ## Upplýsingar um nemendur
 
 1. 
-* Natanel Demissew Ketema
-* ndk1@hi.is
-
-2. 
 * Styrmir Þórarinsson
 * sth315@hi.is
+
+2. 
+* Natanel Demissew Ketema
+* ndk1@hi.is
 
 3. 
 * Björn Óli Eyþórsson

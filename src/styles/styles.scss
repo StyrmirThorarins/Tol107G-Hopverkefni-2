@@ -241,7 +241,7 @@ h3 { /* stylelint-disable-line */
 
   &__content--h1 { //heading í haus
     font-size: $grunnleturstaerd*3;
-    @media (max-width:500px) {
+    @media (max-width: 500px) {
       font-size: $grunnleturstaerd*2;
     }
   }
