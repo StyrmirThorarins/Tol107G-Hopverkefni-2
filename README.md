@@ -2,7 +2,7 @@
 
 ## Hvernig á að keyra verkefni
 
-* Til að keyra verkefni skal nota npm dev-rollup í cmd
+* Til að keyra verkefni skal nota 'npm run dev-rollup' í cmd.
 
 ## Uppsetning verkefnis
 
