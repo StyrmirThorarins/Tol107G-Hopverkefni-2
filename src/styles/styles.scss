@@ -17,7 +17,7 @@ html { /* stylelint-disable-line */
   overflow-x: hidden;
   overflow-y: scroll; // alltaf hafa y skrollbar
   font-family: $font-main;
-  font-size: 16px;
+  font-size: 1em;
 }
 
 h1 { /* stylelint-disable-line */
@@ -83,7 +83,7 @@ h3 { /* stylelint-disable-line */
   &__btn { // class fyrir alla takka
     padding: $gutter/2;
     font-family: $font-title;
-    font-size: 24px;
+    font-size: 1.5em;
     font-weight: bold;
     background-color: $whitegrey;
     border-radius: 20px;
@@ -136,7 +136,7 @@ h3 { /* stylelint-disable-line */
   // p-tögg í hvert einasta fyrirlestur
   padding-top: $gutter;
   padding-left: $gutter;
-  font-size: 21px;
+  font-size: 1.3em;
 }
 
 .fyrirlestur { // hvert einasti fyrirlestur
@@ -149,7 +149,7 @@ h3 { /* stylelint-disable-line */
   &__p { // p-tögg í hvert einasta fyrirlestur
     padding-top: $gutter;
     padding-left: $gutter;
-    font-size: 21px;
+    font-size: 1.3em;
   }
 
   &__info {
@@ -226,7 +226,7 @@ h3 { /* stylelint-disable-line */
     width: 100%;
     height: 100%;
     padding-top: 15vh;
-    font-size: 21px;
+    font-size: 1.3em;
     transform: translate(-50%, -50%);
   }
 
@@ -273,7 +273,7 @@ header { /* stylelint-disable-line */ //header elementið sjálft
   }
 
   &__ul {
-    font-size: 21px;
+    font-size: 1.3em;
   }
 
   &__iframe--vid {
@@ -301,12 +301,12 @@ header { /* stylelint-disable-line */ //header elementið sjálft
 
   &__p {
     font-family: Lora, "Times New Roman";
-    font-size: 24px;
+    font-size: 1.5em;
   }
 
   &__h1 {
     font-family: monospace;
-    font-size: 32px;
+    font-size: 2em;
   }
 }
 
